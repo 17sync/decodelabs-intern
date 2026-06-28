@@ -4,7 +4,7 @@ This repositry contains the projects I coded during my Python Development Intern
 ## Project-1
 A simple command-line based To-Do List application. It demonstrates fundamental programming concepts by allowing users to create, view, update, and delete tasks through a simple interactive interface.
 
-- to-do.py
+**- to-do.py**
 ```py
 tasks=[]
 nextID=1
