@@ -234,3 +234,75 @@ menu()
 ```
 
 The project focuses on strengthening core Python concepts such as arithmetic operations, accumulators, lists, dictionaries, loops, functions, conditional statements, and input validation. It provides practical experience in processing numerical data and managing collections of information, serving as a foundation for building more advanced financial and backend applications.
+
+## Project-3
+A straightforward command-line Random Password Generator developed in Python as part of the DecodeLabs Python Development Internship. It allows users to generate secure, customizable passwords by specifying a desired length and optionally including special characters.
+
+**- random.py**
+```py
+import random
+import string
+
+
+def generatePassword(): pass
+def menu(): pass
+
+
+def menu():
+    while True:
+        print("\n===== RANDOM PASSWORD GENERATOR =====")
+        print("1. Generate Password")
+        print("2. Exit")
+
+        operation=input("Choose an Operation: ")
+
+        if operation=="1":
+            generatePassword()
+
+        elif operation=="2":
+            print("\nThank you for using my Password Generator!")
+            break
+
+        else:
+            print("Invalid input, try again.\n")
+
+
+def generatePassword():
+    try:
+        length=int(input("Enter password length: "))
+
+        if length<4:
+            print("Password length must be at least 4.\n")
+            return
+
+        useSpecial=input("Include special characters? (Y/N): ").strip().lower()
+        characters=string.ascii_letters+string.digits
+
+        if useSpecial=="y":
+            characters+=string.punctuation
+
+        password=[
+            random.choice(string.ascii_lowercase),
+            random.choice(string.ascii_uppercase),
+            random.choice(string.digits)
+        ]
+
+        if useSpecial=="y" or useSpecial=="Y":
+            password.append(random.choice(string.punctuation))
+
+        while len(password)<length:
+            password.append(random.choice(characters))
+        random.shuffle(password)
+
+        print("\nGenerated Password:")
+        print("".join(password))
+        print()
+
+    except ValueError:
+        print("Please enter a valid number.\n")
+
+
+menu()
+```
+
+The project focuses on strengthening core Python concepts such as module integration, string manipulation, loops, conditional statements, functions, and input validation. By utilizing Python's built-in random and string libraries, it demonstrates how standard libraries can be leveraged to create practical security-focused utilities while reinforcing the fundamentals of automation and secure data generation.
